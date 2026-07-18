@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[hsl(228,100%,84%)]">
+    
+
+
+
+<section class="flex md:flex-row flex-col md:justify-center md:max-w-6xl md:mx-auto md:bg-white md:w-200 rounded-[8px] md:mt-20 md:h-150">
+ <div class="md:bg-[url('./assets/images/bg-sidebar-desktop.svg')] bg-[url('./assets/images/bg-sidebar-mobile.svg')] bg-center bg-no-repeat bg-cover md:w-70 md:h-140 h-45 flex md:flex-col gap-5 md:m-4 md:px-4 md:pt-6 rounded-[8px] w-full items-center justify-center md:items-start md:justify-start">
+    <div class="flex gap-2 items-center">
+      
+     <p id="step1" class="bg-[hsl(228,100%,84%)] md:w-8 w-12 text-center rounded-full md:h-8 h-12 flex justify-center items-center text-black">1
+
+     </p>
+       <div class="flex flex-col md:block hidden">
+        <p class="text-white">STEP 1</p>
+        <h2 class="font-bold text-white">YOUR INFO</h2>
+       </div> 
+    </div>
+
+     <div class="flex items-center gap-2">
+     <p id="step2" class="md:w-8 md:h-8 w-12 h-12 rounded-full border border-white items-center flex justify-center text-white">2</p>
+       <div className="md:block hidden">
+        <p class="text-white md:block hidden">STEP 2</p>
+        <h2 class="font-bold text-white md:block hidden">SELECT PLAN</h2>
+       </div> 
+    </div>
+
+     <div class="flex items-center gap-2">
+     <p id="step3" class="border border-white w-12 h-12 md:w-8 text-center rounded-full md:h-8 flex justify-center items-center text-white">3</p>
+       <div>
+        <p class="text-white md:block hidden">STEP 3</p>
+        <h2 class="font-bold text-white md:block hidden">ADD-ONS</h2>
+       </div> 
+    </div>
+
+     <div class="flex items-center gap-2">
+     <p id="step4" class="border border-white md:w-8 text-center rounded-full md:h-8 w-12 h-12 flex justify-center items-center text-white"> 4</p>
+       <div>
+        <p  class="text-white md:block hidden">STEP 4</p>
+        <h2 class="font-bold text-white md:block hidden">SUMMARY</h2>
+       </div> 
+    </div>
+
+
+</div>
+
+<form id="form" class="relative z-10 -mt-10 mx-6 bg-white rounded-2xl shadow-xl p-6
+  md:static md:z-auto md:mt-0 md:mx-0 md:bg-transparent md:shadow-none md:rounded-none
+  md:w-170 md:pl-15 flex-col flex gap-2 md:pt-10 w-auto">
+    <div class="mb-2">
+      <h2 class="text-[24px] font-bold ">Personal info</h2>
+    <p class=" text-[14px]">please provide your name, email address and phone number</p>
+    </div>
+<div class="md:w-100">
+   <div class="flex flex-col gap-1">
+     <label for="name">Name</label>
+     <input id="name" class="border w-full h-9 rounded-[5px] pl-2 " type="text" placeholder="e.g stephen King">
+    <div class="flex justify-end"> <span class="error-msg hidden" id="error-name"> This field is required</span></div>
+     <p id="emailerror" class="text-red-500 text-sm"></p>
+   </div>
+
+    <div class="flex flex-col gap-1 my-2">
+     <label for="name">Email Address</label>
+     <input id="email" class="border w-full h-9 rounded-[5px] pl-2" type="email" placeholder="e.g Jazkidudoh@gmail.com">
+      <div class="flex justify-end"> <span class="error-msg hidden" id="error-email"> This field is required</span></div>
+     <p id="nameError" class="text-red-500 text-sm"></p>
+   </div>
+
+    <div class="flex gap-1 flex-col ">
+     <label  for="name">Phone Number</label>
+     <input id="Number" class="border w-full pl-2 h-9 rounded-[5px]" type="number" placeholder="e.g +123456789">
+     <div class="flex justify-end"><span class="error-msg hidden" id="error-phone"> This field is required</span></div>
+   </div>
+   <div class="flex justify-end h-8 md:mt-28 mt-10 ">
+    <button id="btnNext" class="bg-[hsl(213,96%,18%)]  p-4 flex items-center rounded-[8px] h-10 text-white font-semibold cursor-pointer">Next Step</button>
+   </div>
+</div>
+
+
+
+</form>
+
+<!-- <div class="flex justify-end h-8 mt-15 pr-8 ">
+    <button id="btnNext" class="bg-[hsl(213,96%,18%)] md:hidden p-4 flex items-center rounded-[8px] h-10 text-white font-semibold cursor-pointer">Next Step</button>
+   </div> -->
+
+
+
+<div id="form2" class="relative z-10 hidden -mt-10 mx-6 bg-white rounded-2xl shadow-xl p-6
+  md:static md:z-auto md:mt-0 md:mx-0 md:bg-transparent md:shadow-none md:rounded-none
+  md:w-170 md:pl-15 flex-col flex gap-2 md:pt-10 w-auto">
+
+ <div class="md:mb-2">
+      <h2 class="text-[24px] font-bold ">Select your plan</h2>
+    <p class=" text-[18px]">You have the option of monthly or yearly billing</p>
+    </div>
+
+  <div class="flex md:gap-4 md:pt-8 flex-col md:w-100">
+
+<div class="flex flex-col md:flex-row w-full md:justify-between gap-3 md:gap-0">
+
+<div id="arcadeplan" data-plan="arcade" data-price-monthly="9" data-price-yearly="90" class="plancard border-[1.5px] md:w-30 md:h-42 md:px-4 md:pt-4 text-start flex md:flex-col gap-3 md:gap-0 ">
+   <div  className="w-20 "
+   >
+    <img
+   className="w-full object-cover"
+   
+    src="./assets/images/icon-arcade.svg" alt=""></div>
+    <div className>  
+     <p  class="md:mt-8 font-bold">Arcade</p>
+     <p id="sumaryprice" class="price">9/mo</p>
+     <p  class="yearly hidden">$90/yr</p>
+     <p class="hidden bonus text-[12px] font-bold">2 months free</p></div>
+   </div>
+
+
+
+  <div id="Advanceplan" data-plan="advanced" data-price-monthly="12" data-price-yearly="120" class="plancard border-[1.5px] md:w-30 md:h-42 px-4 pt-4 text-start cursor-pointer md:gap-0 flex md:flex-col gap-3">
+ <div  className="w-20 "><img
+  className="w-full object-cover"
+  src="./assets/images/icon-advanced.svg" alt=""></div>
+ <div>
+ <p class="md:mt-8 font-bold">Advance</p>
+     <p class="price">$12/mo</p>
+    <p class="yearly hidden"> $120/yr</p>
+    <p class="hidden bonus text-[12px] font-bold pb-1">2 months free</p>
+
+ </div>
+   </div>
+
+      <div id="proplan" data-plan="pro" data-price-monthly="15" data-price-yearly="150" class="plancard border-[1.5px] md:w-30 md:h-42 px-4 pt-4 text-start flex md:flex-col md:gap-0 gap-3">
+     <div  className="w-20 "> <img 
+      className="w-full object-cover"
+      class="" src="./assets/images/icon-pro.svg" alt=""></div>
+  <div>
+<p class="md:mt-8 font-bold">Pro</p>
+     <p class="price">$15/mo</p>
+     <p class="hidden yearly">$150/yr</p>
+     <p class="hidden bonus text-[12px] font-bold pb-1">2 months free</p>
+
+  </div>
+   </div>
+
+
+</div>
+    
+
+<div class="items-center flex justify-center mt-5 gap-4 bg-[hsl(229,24%,87%,0.4)] h-12 rounded-[10px]">
+<p id="mon" class="font-semibold text-[hsl(213,96%,18%)]">Monthly</p>
+  <label class="w-12 h-6 bg-[hsl(213,96%,18%)] rounded-full cursor-pointer relative inline-block">
+       
+  <input id="toggleplan" type="checkbox" class="hidden peer">
+               <!-- toggle ball -->
+<div class="absolute left-1 top-1 w-4 h-4 bg-[white] rounded-full transition-all peer-checked:translate-x-6">
+</div>
+</label>
+<p id="yrly" class="font-bold text-[hsl(231,11%,63%)]">Yearly</p>
+</div>
+
+    <div  class="flex h-8 mt w-full flex justify-between mt-20 bg-">
+     <button type="submit" id="backbtn" class="cursor-pointer">Go back</button>
+    <button id="ntx2btn" class="bg-[hsl(213,96%,18%)] p-4 flex items-center rounded-[8px] h-10 text-white font-bold cursor-pointer ">Next Step</button>
+</div>
+  </div>
+
+  
+
+
+
+
+   
+</div>
+
+
+<div id="form3" class="relative z-10 hidden -mt-10 mx-6 bg-white rounded-2xl shadow-xl p-6
+  md:static md:z-auto md:mt-0 md:mx-0 md:bg-transparent md:shadow-none md:rounded-none
+  md:w-170 md:pl-15 flex-col flex gap-2 md:pt-10 w-auto">
+
+ <div class="mb-2">
+      <h2 class="md:text-[24px] font-bold ">Pick add-ons</h2>
+    <p class=" md:text-[18px]">Add-ons help enhance your gaming experience</p>
+    </div>
+
+  <div class="flex gap-4 pt-2 md:pt-8 flex-col md:w-100">
+ <div data-addon="Online Service" data-price-monthly="1" data-price-yearly="10" class="addonsplan flex w-full justify-between border px-5  md:text-[16px] py-4 rounded-[8px] ">
+<div class="flex gap-4">
+    <input type="checkbox">
+    <div>
+      <p class="font-semibold">Online Services</p>
+      <p class="text-12px">Access to multiplayer games</p>
+    </div>
+</div>
+  <p class="thirdstage hidden">+10$/yr</p>
+ <p class="step3mon">+$1/mo</p>
+ </div>
+
+  <div data-addon="Larger storage" data-price-monthly="2" data-price-yearly="20" class="addonsplan flex w-full justify-between border px-5  md:text-[16px] py-4 rounded-[8px]">
+   <div class="flex gap-4">
+    <input type="checkbox">
+    <div>
+      <p class="font-semibold">Larger Storage</p>
+      <p class="text-12px">Extra 1TB of cloud Save</p>
+    </div>
+   </div>
+   <p class="thirdstage hidden">+20$/yr</p>
+ <p class="step3mon">+$2/mo</p>
+ </div>
+
+  <div data-addon="Customizable profile" data-price-monthly="2" data-price-yearly="20" class="addonsplan flex w-full justify-between border px-5 md:text-[16px] py-4 rounded-[8px]">
+   <div class="flex gap-4">
+     <input type="checkbox">
+    <div>
+      <p class="font-semibold">Customizable profiles</p>
+      <p class="text-10px">Custom Theme on your profile</p>
+    </div>
+   </div>
+   <p class="thirdstage hidden">+20$/yr</p>
+ <p class="step3mon">+$2/mo</p>
+ </div>
+
+   <div  class="flex md:h-8 mt-5 w-full flex justify-between md:mt-15">
+     <button type="submit" id="back2btn" class="cursor-pointer">Go back</button>
+    <button id="next3btn" class="bg-[hsl(213,96%,18%)] p-4 flex items-center rounded-[8px] h-10 text-white font-bold cursor-pointer ">Next Step</button>
+</div>
+  </div>
+  </div>
+
+  
+<div id="form4" class="relative z-10 hidden -mt-10 mx-6 bg-white rounded-2xl shadow-xl p-6
+  md:static md:z-auto md:mt-0 md:mx-0 md:bg-transparent md:shadow-none md:rounded-none
+  md:w-170 md:pl-15 flex-col flex gap-2 md:pt-10 w-auto"> 
+
+<div class="mb-5">
+      <h2 class="text-[24px] font-bold pt-2 ">Finishing Up</h2>
+    <p class=" text-[18px]">Double check everything looks okay before confirming</p>
+    </div>
+
+<!-- SUMMARRY BOX -->
+<div class=" md:mr-20">
+
+  <div class="p-4 rounded-xl bg-blue-50 border-gray-200 ">
+  <!-- plan section -->
+<div class="flex justify-between items-center mb-4">
+ <div>
+
+   <h3 id="sumplanName" class="text-gray-500"class="font-bold text-[16px] "></h3>
+  <button id="changebtn" class="underline cursor-pointer text-gray-500">
+    Change
+  </button>
+ </div>
+ <p id="sumplanprice" class="text-blue-950 font-bold"></p>
+</div>
+  <hr class="my-4">
+   <!-- add on section -->
+<ul id="summaryaddon" class="text-gray-500">
+
+</ul>
+    <!-- Total section -->
+     
+</div>
+<div class="flex justify-between items-center pt-4 px-3">
+      <p class="text-gray-500">Total (per  <span id="subity" class=""></span>)</p>
+      <h3 id="sumtot" class="font-bold text-xl text-purple-600"></h3>
+ </div>
+ <div  class="flex h-8 mt-15 md:mt-40 w-full flex justify-between">
+     <button type="submit" id="back3btn" class="cursor-pointer text-gray-500">Go back</button>
+    <button id="next4btn" class="bg-[hsl(213,96%,18%)] p-4 flex items-center rounded-[8px] h-10 text-white font-bold cursor-pointer ">Confirm</button>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+<div class="flex gap-4 pt-8 flex-col w-100">
+<div class="w-full bg-[hsl(228,100%,84%,0.1)] px-5 rounded-[10px] h-38">
+<div class="flex w-full justify-between ">
+  <div class="pt-4">
+<p class="font-bold">Arcade <span class="step4mon font-bold"> (Monthly)</span><span class="step4yrly hidden">(Yearly)</span></p>
+
+
+
+   <p>Arcade <span id="bra2">(Monthly)</span> -->
+    <!-- <span id="bra" class="hidden">(Yearly)</span></p> --> 
+<!-- <button id="chngebtn" type="submit" class="underline cursor-pointer">Change</button>
+</div>
+<p class="step4mon font-bold text-[18px] pt-4">$9/mo</p>
+<p class="step4yrly hidden font-bold text-[18px] pt-4">$90/yr</p>
+</div> --> 
+<!-- 
+<div class="w-full pt-5">
+ <div class=" flex w-full justify-between">
+  <p>online service</p>
+  <p class="step4mon font-semibold">+1/mo$</p>
+  <p class="step4yrly hidden" >$10/yr</p>
+ </div>
+ <div class="flex w-full justify-between">
+  <p  class="py-1">Larger Storage</p>
+  <p class="step4mon">+3/mo$</p>
+  <p class="step4yrly hidden font-semibold" >$20/yr</p>
+ </div> -->
+<!-- </div>
+</div>
+<div class="flex justify-between w-full">
+
+  <p>Total<span class="step4mon" > (per month)</span><span class="step4yrly hidden"> (per year) </span> -->
+ 
+<!-- <p >(permonth)</p>
+<p class="step4yrly hidden">(per year)</p> -->
+
+<!-- <div class="step4mon">(per month)</div>
+<div class="step4yrly hidden">(per year)</div> -->
+  <!-- </p> -->
+
+
+  <!-- <p class="permonth">Total(per monthly) <span class="step4yrly">(per year)</span></p> -->
+  
+  <!-- <p class="step4mon text-[22px]">+12/mo</p>
+  <p class="step4yrly hidden text-[22px]" >$120/yr</p>
+</div> -->
+
+
+
+
+  
+  </div>
+  </div>
+
+
+
+    
+<div id="form5" class="relative z-10 hidden -mt-10 mx-6 bg-white rounded-2xl shadow-xl p-6
+  md:static md:z-auto md:mt-0 md:mx-0 md:bg-transparent md:shadow-none md:rounded-none
+  md:w-170 md:pl-15 flex-col flex gap-2 md:pt-10 w-auto">
+
+
+
+<div class="flex gap-4 mt:pt-8 flex-col md:w-100 items-center text-center md:mt-20 md:px-15 px-8">
+<img class="w-30" src="./assets/images/icon-thank-you.svg" alt="">
+<h1 class="text-40px font-bold">Thank You</h1>
+<p class="md:w-140 md:px-15 font-medium  text-[15px]">
+  Thanks for confirming your subscription! We hope you have fun 
+  using our platform. If you ever need support, please feel free 
+  to email us at support@loremgaming.com.</p>
+
+  </div>
+  </div>
+
+
+
+   
+</div>
+
+
+</section>
+
+<script src="multi form.js"></script>
+</body>
+</html>
